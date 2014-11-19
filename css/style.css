@@ -511,3 +511,17 @@ margin: 0;
 padding-right: 15px;
 /*background: #fff;*/
 }
+
+
+
+/* Fix */
+[class^="flaticon-help"]:before, [class*=" flaticon-help"]:before, [class^="flaticon-help-"]:after, [class*=" flaticon-help-"]:after {
+font-family: Flaticon;
+font-size: 20px;
+font-style: normal;
+margin-left: 0px;
+}
+
+label.flaticon-help {
+    left: 20px;
+}

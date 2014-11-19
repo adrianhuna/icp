@@ -83,7 +83,7 @@ $("#buy-ticket-button").click(function(){
         case "3": m = "Detská miestenka";break;
     }
     $.ajax({
-        url: "_/ticket_bought.html",
+        url: "views/ticket_bought.html",
         context: document.body,
         cache: false
     }).done(function(response) {

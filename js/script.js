@@ -1,6 +1,6 @@
 function showIndex() {
     $.ajax({
-        url: "_/index.html",
+        url: "views/index.html",
         context: document.body,
         cache: false
     }).done(function(response) {
@@ -11,7 +11,7 @@ function showIndex() {
 
 function showRegistration() {
     $.ajax({
-        url: "_/registration.html",
+        url: "views/registration.html",
         context: document.body,
         cache: false
     }).done(function(response) {
@@ -21,7 +21,7 @@ function showRegistration() {
 
 function showConnections() {
     $.ajax({
-        url: "_/search_results.html",
+        url: "views/search_results.html",
         context: document.body,
         cache: false
     }).done(function(response) {
@@ -32,7 +32,7 @@ function showConnections() {
 
 function showBuyTicket() {
     $.ajax({
-        url: "_/buy_ticket.html",
+        url: "views/buy_ticket.html",
         context: document.body,
         cache: false
     }).done(function(response) {
@@ -43,7 +43,7 @@ function showBuyTicket() {
 
 function showDetails() {
     $.ajax({
-        url: "_/connection_detail.html",
+        url: "views/connection_detail.html",
         context: document.body,
         cache: false
     }).done(function(response) {
@@ -60,7 +60,7 @@ $(function() {
         selector: "[data-toggle='tooltip']"
     });
     $.ajax({
-        url: "_/buy_ticket.html",
+        url: "views/buy_ticket.html",
         context: document.body,
         cache: false
     }).done(function(response) {

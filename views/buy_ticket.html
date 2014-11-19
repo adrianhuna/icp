@@ -43,10 +43,13 @@
                     <option value="2">Okno</option>
                 </select>
             </div>
-            <div class="btn-group col-sm-6" role="group" aria-label="Default button group" id="miesto_select">
-                <button type="button" class="btn btn-default btn-warning active" title="Počet voľných miest na rezerváciu je menší než 20%" onclick="setPozicia(0)">Chodba</button>
-                <button type="button" class="btn btn-default btn-success" title="Dostatočný počet miest na rezerváciu" onclick="setPozicia(1)">Stred</button>
-                <button type="button" class="btn btn-default btn-success" title="Dostatočný počet miest na rezerváciu" onclick="setPozicia(2)">Okno</button>
+            <div class="col-sm-6">
+                <div class="btn-group" role="group" aria-label="Default button group" id="miesto_select" style="float:left">
+                    <button type="button" class="btn btn-default btn-warning active" title="Počet voľných miest na rezerváciu je menší než 20%" onclick="setPozicia(0)">Chodba</button>
+                    <button type="button" class="btn btn-default btn-success" title="Dostatočný počet miest na rezerváciu" onclick="setPozicia(1)">Stred</button>
+                    <button type="button" class="btn btn-default btn-success" title="Dostatočný počet miest na rezerváciu" onclick="setPozicia(2)">Okno</button>
+                </div>
+                <div class="flaticon-round67" data-toggle="tooltip" data-placement="bottom" title="Zelená farba - Miesteniek je dostatočné miesto. Žltá - Miesteniek je menej ako 20%. Červená - Miestenky už nie sú k dispozícii" style="float:left"></div>
             </div>
         </div>
         <br><br>

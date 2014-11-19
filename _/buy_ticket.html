@@ -1,0 +1,143 @@
+<div class="row">
+    <div class="col-sm-2"><div class="flaticon-train5 bigicon"></div></div>
+    <div class="col-sm-8">
+        <span class="connection-name">R 605 Dargov</span><br>
+        <span class="connection-trace">Malacky - Žilina</span><br>
+        <span class="connection-date"><b>Odchod:</b> 20.11.2014 09:04</span><br>
+        <span class="connection-date"><b>Príchod:</b> 20.11.2014 12:41</span>
+        <br><br>
+    </div>
+</div>
+<div id="buy-ticket-dynamic-part">
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="cestujuci" class="col-sm-3 control-label">Typ cestujúceho</label>
+            <div class="col-sm-9">
+                <select name="cestujuci" id="cestujuci" class="form-control" onchange="changeType()">
+                    <option value="0">Obyčajný</option>
+                    <option value="1">Dieťa - 15</option>
+                    <option value="2">Žiak / Študent</option>
+                    <option value="3">ŤZP</option>
+                    <option value="4">Občan 70+</option>
+                    <option value="5">Cestovanie zadarmo</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="miestenka" class="col-sm-3 control-label">Miestenka</label>
+            <div class="col-sm-9">
+                <select name="miestenka" id="miestenka" class="form-control" onchange="displayMiestenky()">
+                    <option value="0">Bez miestenky</option>
+                    <option value="1">Miestenka 2.tr</option>
+                    <option value="2">Miestenka 1.tr</option>
+                    <option value="3">Miestenka detské</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group" id="miestenka-miesto">
+            <label class="col-sm-3 control-label">Pozícia</label>
+            <div class="col-sm-3">
+                <select name="pozicia" id="pozicia" class="form-control">
+                    <option value="0">Chodba</option>
+                    <option value="0">Stred</option>
+                    <option value="0">Okno</option>
+                </select>
+            </div>
+            <div class="btn-group col-sm-6" role="group" aria-label="Default button group">
+                <button type="button" class="btn btn-default btn-warning" title="Počet voľných miest na rezerváciu je menší než 20%">Chodba</button>
+                <button type="button" class="btn btn-default btn-success" title="Dostatočný počet miest na rezerváciu">Stred</button>
+                <button type="button" class="btn btn-default btn-success" title="Dostatočný počet miest na rezerváciu">Okno</button>
+            </div>
+        </div>
+        <br><br>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Cena</label>
+            <div class="col-sm-9">
+                <span id="ticket-price">10.90€</span><br>
+                <i>Cena je platná pre nákup cez internet.</i>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+var cena = 10.90;
+var default_cena = 10.90;
+$("#miestenka-miesto").hide();
+$("#buy-ticket-button").click(function(){
+    var cestujuci = $("#cestujuci").val();
+    var konecna_cena = $("#ticket-price").text();
+    var miestenka = $("#miestenka").val();
+
+    switch(cestujuci) {
+        case "0": ct = "Obyčajný cestovný lístok";break;
+        case "1": ct = "Detský cestovný lístok";break;
+        case "2": ct = "Žiak / študent cestovný lístok";break;
+        case "3": ct = "ŤZP cestovný lístok";break;
+        case "4": ct = "Cestovný lístok 70+";break;
+        case "5": ct = "Cestovný lístok zadarmo";break;
+    }
+    switch(miestenka) {
+        case "0": m = "Žiadna miestenka";break;
+        case "1": m = "Miestenka do 2. triedy";break;
+        case "2": m = "Miestenka do 1. triedy";break;
+        case "3": m = "Detská miestenka";break;
+    }
+    $.ajax({
+        url: "_/ticket_bought.html",
+        context: document.body,
+        cache: false
+    }).done(function(response) {
+        $("#buy-ticket-dynamic-part").html(response);
+        $(".modal-footer").hide();
+        $("#bought-ticket-type").text(ct);
+        $("#bought-class").text(m);
+        $("#bought-price").text(konecna_cena);
+    });
+});
+function displayMiestenky() {
+    var val = $("#miestenka").val();
+    if(val != 0) {
+        $("#miestenka-miesto").show();
+        switch(val) {
+            case "1":
+                cena = default_cena + 1.50;
+                break
+            case "2":
+                cena = default_cena + 3.50;
+                break;
+            case "3":
+                cena = default_cena + 0.50;
+                break;
+        }
+    } else {    
+        $("#miestenka-miesto").hide();
+        cena = default_cena;
+    }
+    $("#ticket-price").text(cena + "€");
+}
+function changeType() {
+    var val = $("#cestujuci").val();
+        switch(val) {
+            case "0":
+                cena = 11.90;
+                break;
+            case "1":
+                cena = 3.50;
+                break;
+            case "2":
+                cena = 5.95;
+                break;
+            case "3":
+                cena = 4.40;
+                break;
+            case "4":
+                cena = 1.40;
+                break;
+            case "5":
+                cena = 0.0;
+                break;
+        }
+    default_cena = cena;
+    $("#ticket-price").text(cena + "€");
+}
+</script>

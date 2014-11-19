@@ -1,0 +1,93 @@
+<h1>Registrácia</h1>
+<div id="inner_block">
+    <div id="inner_block_in" class="control-group">
+        <p>Zaregistrujte sa a získajte jednoduchší prístup k nákupu cestovného lístka a lepšiemu odporúčaniu spojení.</p>
+        <form id="reg-form" action="#" role="form" style="float: left" method="post">
+            <div class="form-group col-lg-12">
+                <div class="col-lg-4">
+                    <input type="email" name="reg_email" id="reg_email" class="form-control col-lg-4" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group col-lg-12">
+                <div class="col-lg-4">
+                    <input type="text" name="reg_name" id="reg_name" class="form-control" placeholder="Zobrazované meno">
+                </div>
+            </div>
+            <div class="form-group col-lg-12">
+                <div class="col-lg-4">
+                    <input type="text" name="reg_pwd" id="reg_pwd" class="form-control" placeholder="Heslo">
+                </div>
+            </div>
+            <div class="form-group col-lg-12">
+                <div class="col-lg-4">
+                    <input type="text" name="reg_pwd_cp" id="reg_pwd_cp" class="form-control" placeholder="Zopakujte heslo">
+                </div>
+            </div>
+            <div class="form-group col-lg-12">
+                <div class="col-lg-4">
+                    <input type="checkbox" name="reg_terms" id="reg_terms">&nbsp;&nbsp;<label for="">Súhlasím s <a href="#">Pravidlami a podmienkami použitia</a></label>
+                </div>
+            </div>
+            <div class="form-group col-lg-12">
+                <div class="col-lg-4">
+                    <input type="submit" class="main-button form-control" value="Zaregistrovať">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+$(document).ready(function(){
+    $("#reg-form").validate({
+    errorPlacement: function(error, element) {
+    error.insertAfter(element.parent("div"));
+},
+rules: {
+reg_email: {
+required: true,
+email: true
+},
+reg_name: {
+required: true,
+minlength: 3,
+maxlength: 16
+},
+reg_pwd: {
+required: true,
+minlength: 6,
+maxlength: 30
+},
+reg_pwd_cp: {
+required: true,
+equalTo: "#reg_pwd"
+},
+reg_terms: {
+required: true,
+}
+},
+messages: {
+reg_email: {
+required: "Zadajte email, s ktorým sa budete prihlasovať",
+email: "Zadaný tvar emailovej adresy je neplatný"
+},
+reg_name: {
+required: "Zadajte meno alebo prezývku, pod ktorým budete vystupovať",
+minlength: "Meno musí mať minimálne 3 znaky",
+maxlength: "Meno môže mať maximálne 16 znakov",
+},
+reg_pwd: {
+required: "Zadajte heslo, s ktorým sa budete prihlasovať",
+minlength: "Heslo musí mať minimálne 6 znakov",
+maxlength: "Heslo môže mať maximálne 30 znakov",
+},
+reg_pwd_cp: {
+required: "Zopakujte heslo",
+equalTo: "Heslá sa nezhodujú"
+},
+reg_terms: {
+required: "Musíte súhlasiť s podmienkami použitia"
+}
+}
+});
+});
+</script>

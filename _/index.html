@@ -1,0 +1,275 @@
+<div class="row">
+    <div class="col-md-7">
+        <!-- Nav tabs -->
+        <ul id="tabnav" class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#primestska" role="tab" data-toggle="tab">Medzimestská</a></li>
+            <li><a href="#mestska" role="tab" data-toggle="tab">Mestská</a></li>
+            <li><a href="#international" role="tab" data-toggle="tab">Medzinárodná</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="primestska">
+                <!-- Form -->
+                <form action="#" class="form-horizontal" role="form" id="search-form" method="get">
+                    <div id="inner-form-div">
+                        <div id="main-search-right">
+                            <div id="change-direction">
+                                <img src="img/change1.png">
+                            </div>
+                        </div>
+                        <div id="main-search-left">
+                            <div class="form-group">
+                                <label for="typdopravy" class="col-xs-1 control-label flaticon-round67" data-toggle="tooltip" data-placement="right" title="Vyberte želaný typ dopravy."></label>
+                                <div class="col-xs-11">
+                                    <select class="form-control selectpicker" id="max-prestup">
+                                        <option data-content="<div class='flaticon-train6 select-icon'></div>Vlaky + Autobusy" selected>Vlaky + Autobusy</option>
+                                        <option data-content="<div class='flaticon-train5 select-icon'></div>Vlaky">Vlaky</option>
+                                        <option data-content="<div class='flaticon-frontal4 select-icon'></div>Autobusy">Autobusy</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="odkial" class="col-xs-1 control-label flaticon-round67" data-toggle="tooltip" data-placement="right" title="Zadajte názov miesta odchodu cestovného spojenia. Stačí zadať len začiatočné znaky slov. Nie je potrebné používať diakritiku."></label>
+                                <div class="col-xs-11">
+                                    <input type="text" class="form-control" id="odkial" placeholder="Odkiaľ" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="kam" class="col-xs-1 control-label flaticon-round67" data-toggle="tooltip" data-placement="right" title="Zadajte názov cieľového miesta cestovného spojenia. Stačí zadať len začiatočné znaky slov. Nie je potrebné používať diakritiku."></label>
+                                <div class="col-xs-11">
+                                    <input type="text" class="form-control" id="kam" placeholder="Kam" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="dateinput" class="control-label col-sm-1 col-xs-1 flaticon-round67" data-toggle="tooltip" data-placement="right" title="Zadajte dátum jazdy. Ak údaj nevyplníte, automaticky sa zobrazia spojenia s dnešným dátumom. Ak zvolíte prepínač Odchod, hľadajú sa spojenia s odchodom z Odkiaľ vrátane a po zadanom dátume. Ak zvolíte prepínač Príchod, hľadajú sa spojenia s príchodom do Kam najviac v deň zadaného dátumu."></label>
+                                <div class="col-lg-5 col-xs-10 col-sm-5 col-md-5">
+                                    <input type="date" id="dateinput" class="form-control" placeholder="dd.mm.rrrr">
+                                </div>
+                                <div id="damnit" style="display: none;float: left; width: 100%;"><br></div>
+                                <label for="timeinput" class="control-label col-sm-1 col-xs-1 flaticon-round67" data-toggle="tooltip" data-placement="right" title="Zadajte čas jazdy. Ak údaj nevyplníte, automaticky sa zobrazia spojenia s aktuálnym časom. Ak zvolíte prepínač Odchod, hľadajú sa spojenia s odchodom z Odkiaľ po zadanom čase. Ak zvolíte prepínač Príchod, hľadajú sa spojenia s príchodom do Kam najviac do zadaného času."></label>
+                                <div class="col-lg-5 col-xs-10 col-sm-5 col-md-5">
+                                    <input type="time" id="timeinput" class="form-control" placeholder="hh:mm">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-10 col-md-10 col-sm-10">
+                                    <div class=" col-sm-2 col-xs-2"></div>
+                                    <input type="radio" checked="checked" name="je_prichod">
+                                    <label for="je_prichod">Príchod</label>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" name="je_prichod">
+                                    <label for="je_prichod">Odchod</label>
+                                </div>
+                                <div class="col-lg-2 col-xs-12 col-sm-2 col-md-2">
+                                    <input type="submit" id="search-button" class="main-button form-control" value="Vyhľadať" onclick="showConnections();">
+                                </div>
+                            </div>
+                            <!-- Collapse -->
+                            <div class="panel-group" id="accordion1">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading outer-heading">
+                                        <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseOuter">
+                                        Parametre spojenia
+                                        </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOuter" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <label for="max-prestup" class="col-sm-5  col-xs-5 control-label">Max. počet prestupov<div class="flaticon-round67" data-toggle="tooltip" data-placement="left" title="Maximálny prípustný počet prestupov v spojení."></div></label>
+                                                <div class="col-sm-7 col-xs-7">
+                                                    <select class="form-control" id="max-prestup">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="max-dlzka-presunu" class="col-sm-5  col-xs-5 control-label">Max. dĺžka presunu<div class="flaticon-round67" data-toggle="tooltip" data-placement="left" title="Maximálna dĺžka presunu medzi dvoma spojmi, ktoré nenadväzujú v tej istej zastávke/stanici (peši, pomocou MHD)."></div></label>
+                                                <div class="col-sm-7 col-xs-7">
+                                                    <select class="form-control" id="max-dlzka-presunu">
+                                                        <option value="5">5 minút</option>
+                                                        <option value="10">10 minút</option>
+                                                        <option value="30">30 minút</option>
+                                                        <option value="60">60 minút</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="presuny" class="col-sm-5  col-xs-5 control-label">Používať presuny len medzi zástavkami rovnakého mena<div class="flaticon-round67" data-toggle="tooltip" data-placement="left" title="Povoľuje iba presuny medzi nástupišťami jednej stanice."></div></label>
+                                                <div class="col-sm-7 col-xs-7"><br>
+                                                    <input type="checkbox" id="presuny" name="presuny" value="1">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="trasy" class="col-sm-5  col-xs-5 control-label">Preferovať frekventované trasy<div class="flaticon-round67" data-toggle="tooltip" data-placement="left" title="Z alternatívnych spojení bude vybrané to, ktoré má najväčšiu frekvenciu spojov."></div></label>
+                                                <div class="col-sm-7 col-xs-7"><br>
+                                                    <input type="checkbox" id="trasy" name="trasy" value="1">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="dopravci" class="col-sm-5  col-xs-5 control-label">Dopravci<div class="flaticon-round67" data-toggle="tooltip" data-placement="left" title="Zadajte ľubovoľnú časť mena dopravcu, ktorého služby chcete využiť."></div></label>
+                                                <div class="col-sm-7 col-xs-7">
+                                                    <input type="text" class="form-control" id="dopravci">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Collapse end -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane" id="international">
+                 <!-- Form -->
+                <form action="#" class="form-horizontal" role="form" id="search-form" method="get">
+                    <div id="inner-form-div">
+                        <div id="main-search-right">
+                            <div id="change-direction">
+                                <img src="img/change1.png">
+                            </div>
+                        </div>
+                        <div id="main-search-left">
+                            <div class="form-group">
+                                <label for="typdopravy" class="col-xs-1 control-label flaticon-round67" data-toggle="tooltip" data-placement="right" title="Vyberte želaný typ dopravy."></label>
+                                <div class="col-xs-11">
+                                    <select class="form-control selectpicker" id="max-prestup" multiple>
+                                        <option data-content="<div class='flaticon-train5 select-icon'></div>Vlaky" selected>Vlaky</option>
+                                        <option data-content="<div class='flaticon-frontal4 select-icon'></div>Autobusy">Autobusy</option>
+                                        <option data-content="<div class='flaticon-ocean3 select-icon'></div>Lode">Lode</option>
+                                        <option data-content="<div class='flaticon-submarine4 select-icon'></div>Ponorky">Ponorky</option>
+                                        <option data-content="<div class='flaticon-airplane105 select-icon'></div>Helikoptéry">Lietadlá </option>
+                                        <option data-content="<div class='flaticon-airship1 select-icon'></div>Vzducholode">Vzducholode</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="odkial" class="col-xs-1 control-label flaticon-round67" data-toggle="tooltip" data-placement="right" title="Zadajte názov miesta odchodu cestovného spojenia. Stačí zadať len začiatočné znaky slov. Nie je potrebné používať diakritiku."></label>
+                                <div class="col-xs-11">
+                                    <input type="text" class="form-control" id="odkial" placeholder="Odkiaľ" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="kam" class="col-xs-1 control-label flaticon-round67" data-toggle="tooltip" data-placement="right" title="Zadajte názov cieľového miesta cestovného spojenia. Stačí zadať len začiatočné znaky slov. Nie je potrebné používať diakritiku."></label>
+                                <div class="col-xs-11">
+                                    <input type="text" class="form-control" id="kam" placeholder="Kam" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="dateinput" class="control-label col-sm-1 col-xs-1 flaticon-round67" data-toggle="tooltip" data-placement="right" title="Zadajte dátum jazdy. Ak údaj nevyplníte, automaticky sa zobrazia spojenia s dnešným dátumom. Ak zvolíte prepínač Odchod, hľadajú sa spojenia s odchodom z Odkiaľ vrátane a po zadanom dátume. Ak zvolíte prepínač Príchod, hľadajú sa spojenia s príchodom do Kam najviac v deň zadaného dátumu."></label>
+                                <div class="col-lg-5 col-xs-10 col-sm-5 col-md-5">
+                                    <input type="date" id="dateinput" class="form-control" placeholder="dd.mm.rrrr">
+                                </div>
+                                <div id="damnit" style="display: none;float: left; width: 100%;"><br></div>
+                                <label for="timeinput" class="control-label col-sm-1 col-xs-1 flaticon-round67" data-toggle="tooltip" data-placement="right" title="Zadajte čas jazdy. Ak údaj nevyplníte, automaticky sa zobrazia spojenia s aktuálnym časom. Ak zvolíte prepínač Odchod, hľadajú sa spojenia s odchodom z Odkiaľ po zadanom čase. Ak zvolíte prepínač Príchod, hľadajú sa spojenia s príchodom do Kam najviac do zadaného času."></label>
+                                <div class="col-lg-5 col-xs-10 col-sm-5 col-md-5">
+                                    <input type="time" id="timeinput" class="form-control" placeholder="hh:mm">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-10 col-md-10 col-sm-10">
+                                    <div class=" col-sm-2 col-xs-2"></div>
+                                    <input type="radio" checked="checked" name="je_prichod">
+                                    <label for="je_prichod">Príchod</label>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" name="je_prichod">
+                                    <label for="je_prichod">Odchod</label>
+                                </div>
+                                <div class="col-lg-2 col-xs-12 col-sm-2 col-md-2">
+                                    <input type="submit" id="search-button" class="main-button form-control" value="Vyhľadať" onclick="showConnections();">
+                                </div>
+                            </div>
+                            <!-- Collapse -->
+                            <div class="panel-group" id="accordion1">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading outer-heading">
+                                        <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseOuter">
+                                        Parametre spojenia
+                                        </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOuter" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <label for="max-prestup" class="col-sm-5  col-xs-5 control-label">Max. počet prestupov<div class="flaticon-round67" data-toggle="tooltip" data-placement="left" title="Maximálny prípustný počet prestupov v spojení."></div></label>
+                                                <div class="col-sm-7 col-xs-7">
+                                                    <select class="form-control" id="max-prestup">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="max-dlzka-presunu" class="col-sm-5  col-xs-5 control-label">Max. dĺžka presunu<div class="flaticon-round67" data-toggle="tooltip" data-placement="left" title="Maximálna dĺžka presunu medzi dvoma spojmi, ktoré nenadväzujú v tej istej zastávke/stanici (peši, pomocou MHD)."></div></label>
+                                                <div class="col-sm-7 col-xs-7">
+                                                    <select class="form-control" id="max-dlzka-presunu">
+                                                        <option value="5">5 minút</option>
+                                                        <option value="10">10 minút</option>
+                                                        <option value="30">30 minút</option>
+                                                        <option value="60">60 minút</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Collapse end -->
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="tab-pane" id="mestska"><h2>OH NO!</h2><h3>Hungry panda ate this form! We are sorry!</h3><img src="img/panda.jpg" style="margin: 0 auto;"></div>
+        </div>
+    </div>
+    <div class="col-md-1"><!-- spacing --></div>
+    <div class="col-md-4">
+        <div id="carousel-ads" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-ads" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-ads" data-slide-to="1"></li>
+                <li data-target="#carousel-ads" data-slide-to="2"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="img/train1.jpg" alt="...">
+                    <div class="carousel-caption">
+                        Vlakom z Bratislavy do New Yorku len za 99€
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/train2.jpg" alt="...">
+                    <div class="carousel-caption">
+                        Na divoký západ len za 199€
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/train3.jpg" alt="...">
+                    <div class="carousel-caption">
+                        Vlaky zadarmo od 17.11.2014
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // live appended content so this needs to be here to work...
+    $('.carousel').carousel({interval: 5000, cycle: true});
+    $('#search-form').submit(function(e) {
+        e.preventDefault();
+    });
+</script>

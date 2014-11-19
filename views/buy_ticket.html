@@ -37,16 +37,16 @@
         <div class="form-group" id="miestenka-miesto">
             <label class="col-sm-3 control-label">Pozícia</label>
             <div class="col-sm-3">
-                <select name="pozicia" id="pozicia" class="form-control">
+                <select name="pozicia" id="pozicia" class="form-control" onchange="changePozicia()">
                     <option value="0">Chodba</option>
-                    <option value="0">Stred</option>
-                    <option value="0">Okno</option>
+                    <option value="1">Stred</option>
+                    <option value="2">Okno</option>
                 </select>
             </div>
-            <div class="btn-group col-sm-6" role="group" aria-label="Default button group">
-                <button type="button" class="btn btn-default btn-warning" title="Počet voľných miest na rezerváciu je menší než 20%">Chodba</button>
-                <button type="button" class="btn btn-default btn-success" title="Dostatočný počet miest na rezerváciu">Stred</button>
-                <button type="button" class="btn btn-default btn-success" title="Dostatočný počet miest na rezerváciu">Okno</button>
+            <div class="btn-group col-sm-6" role="group" aria-label="Default button group" id="miesto_select">
+                <button type="button" class="btn btn-default btn-warning active" title="Počet voľných miest na rezerváciu je menší než 20%" onclick="setPozicia(0)">Chodba</button>
+                <button type="button" class="btn btn-default btn-success" title="Dostatočný počet miest na rezerváciu" onclick="setPozicia(1)">Stred</button>
+                <button type="button" class="btn btn-default btn-success" title="Dostatočný počet miest na rezerváciu" onclick="setPozicia(2)">Okno</button>
             </div>
         </div>
         <br><br>
@@ -67,7 +67,6 @@ $("#buy-ticket-button").click(function(){
     var cestujuci = $("#cestujuci").val();
     var konecna_cena = $("#ticket-price").text();
     var miestenka = $("#miestenka").val();
-
     switch(cestujuci) {
         case "0": ct = "Obyčajný cestovný lístok";break;
         case "1": ct = "Detský cestovný lístok";break;
@@ -109,7 +108,7 @@ function displayMiestenky() {
                 cena = default_cena + 0.50;
                 break;
         }
-    } else {    
+        } else {
         $("#miestenka-miesto").hide();
         cena = default_cena;
     }
@@ -139,5 +138,17 @@ function changeType() {
         }
     default_cena = cena;
     $("#ticket-price").text(cena + "€");
+}
+function changePozicia() {
+    var val = $("#pozicia").val();
+    var pos = parseInt(val) + 1;
+    console.log(pos);
+    $("#miesto_select button").removeClass("active");
+    $("#miesto_select button:nth-child("+pos+")").addClass("active");
+}
+function setPozicia(pos) {
+    $("#miesto_select button").removeClass("active");
+    $("#miesto_select button:nth-child("+pos+")").addClass("active");
+    $('#pozicia').val(pos);
 }
 </script>

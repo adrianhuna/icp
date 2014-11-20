@@ -1,6 +1,12 @@
 body {
     font-family: 'PT Sans', sans-serif;
     border-top: 2px solid #ab0000;
+    background: #FFF url("../img/rail.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 }
 img {
     max-width: 100%;
@@ -9,7 +15,7 @@ h1 {
     font-size: 20px
 }
 .container {
-    background: #FFF;
+    background: rgba(255, 255, 255, 0.85);
     border: 1px solid #ddd;
     border-top: 0px;
     padding: 0;
@@ -19,6 +25,7 @@ h1 {
     padding: 15px 30px;
     float: left;
     width: 100%;
+    min-height: 720px;
 }
 /* Header */
 
@@ -35,26 +42,23 @@ h1 {
     float: left;
     height: 70px;
     width: 100%;
-    max-width: 300px;
+    max-width: 220px;
 }
-#logo a, #logo a:visited, #logo a:active {
+a.logo, header a.logo:visited, a.logo:active {
     color: white;
     text-shadow: #000 -1px -1px;
 }
-#logo a:hover {
+a.logo:hover {
     text-shadow: #000 -2px -2px;
     color: #eee;
 }
 #logo-text {
-    font-family: 'Verdana';
-    font-weight: bold;
+    font-family: 'Monoton', cursive;
     display: inline-block;
-    font-size: 40px;
+    font-size: 55px;
     margin-left: 20px;
-    margin-top: 15px;
 }
 #logo-small-text {
-    font-weight: bold;
     display: inline-block;
     font-size: 13px;
     margin-left: 10px;
@@ -103,6 +107,10 @@ h1 {
 
 #footer {
     padding: 15px 30px 5px 30px;
+    background: rgba(255, 255, 255, 0.95);
+    float: left;
+    width: 100%;
+    margin-top: 20px;
 }
 #footer > .right {
     float: right;
@@ -125,7 +133,8 @@ h1 {
     background: -o-linear-gradient(top, #a90000 0%, #8c0000 100%);
     background: -ms-linear-gradient(top, #a90000 0%, #8c0000 100%);
     background: linear-gradient(to bottom, #a90000 0%, #8c0000 100%);*/
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#a90000', endColorstr='#8c0000', GradientType=0);
+
+filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#a90000', endColorstr='#8c0000', GradientType=0);
     border: 1px solid #470000;
     border-radius: 5px;
     -moz-border-radius: 5px;
@@ -186,10 +195,11 @@ h1 {
 }
 #inner_block {
     background: #f8f8f8;
-    border: 1px solid #c0c0c0;
+    border: 1px solid #ddd;
     border-top: 2px solid #ab0000;
     float: left;
     width: 100%;
+    box-shadow: #999 2px 2px 5px;
 }
 #inner_block_in {
     float: left;
@@ -254,6 +264,7 @@ input.error:focus {
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
+    box-shadow: #999 2px 2px 5px;
 }
 /* Carousel */
 
@@ -261,6 +272,10 @@ input.error:focus {
     max-width: 350px;
     max-height: 370px;
     margin-top: 32px;
+    padding: 5px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: #999 2px 2px 5px;
 }
 .carousel-caption {
     font-size: 20px;
@@ -422,6 +437,7 @@ label >[class^="flaticon-"] {
     text-align: center;
 }
 /* Nakup listka */
+
 .modal-title {
     font-weight: bold;
 }
@@ -450,36 +466,33 @@ label >[class^="flaticon-"] {
     font-size: 18px;
     color: #ab0000;
 }
-
-
 /* Connection details */
+
 #details-connections {
     margin: 0 20px;
 }
-
-.table-striped>tbody>tr:nth-child(even)>td {
-   background-color: #e1d9d9 !important;
+.table-striped>tbody>tr: nth-child(even)>td {
+    background-color: #e1d9d9 !important;
 }
-
 body .modal-details-dialog {
     width: 100%;
-    max-width: 800px; /* respsonsive width */
+    max-width: 800px;
+    /* respsonsive width */
 }
-
-
-
 /* Language dropdown */
+
 #language-dropdown.dropdown-menu {
     min-width: 40px;
 }
-
 #language-dropdown img {
     margin-left: 5px;
 }
-
 /* WebTicker */
-.tickercontainer { /* the outer div with the black border */
-    width: 100%;
+
+.tickercontainer {
+    /* the outer div with the black border */
+
+width: 100%;
     max-width: 100%;
     height: 32px;
     background: #cccccc;
@@ -490,44 +503,48 @@ body .modal-details-dialog {
     padding: 0;
     overflow: hidden;
 }
-.tickercontainer .mask { /* that serves as a mask. so you get a sort of padding both left and right */
+.tickercontainer .mask {
+    /* that serves as a mask. so you get a sort of padding both left and right */
+
 position: relative;
-top: 5px;
-height: 18px;
-/*width: 718px;*/
+    top: 5px;
+    height: 18px;
+    /*width: 718px;*/
+
 overflow: hidden;
 }
-ul.newsticker { /* that's your list */
+ul.newsticker {
+    /* that's your list */
+
 position: relative;
-/*left: 750px;*/
+    /*left: 750px;*/
+
 font: bold 12px;
-list-style-type: none;
-margin: 0;
-padding: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 ul.newsticker li {
-float: left; /* important: display inline gives incorrect results when you check for elem's width */
+    float: left;
+    /* important: display inline gives incorrect results when you check for elem's width */
+
 margin: 0;
-padding-right: 15px;
-/*background: #fff;*/
+    padding-right: 15px;
+    /*background: #fff;*/
 }
-
-
-
 /* Fix */
-[class^="flaticon-help"]:before, [class*=" flaticon-help"]:before, [class^="flaticon-help-"]:after, [class*=" flaticon-help-"]:after {
-font-family: Flaticon;
-font-size: 20px;
-font-style: normal;
-margin-left: 0px;
-color: #999; //zmen farbu taktiez
-margin: -5px;
-}
 
+[class^="flaticon-help"]:before, [class*=" flaticon-help"]:before, [class^="flaticon-help-"]:after, [class*=" flaticon-help-"]:after {
+    font-family: Flaticon;
+    font-size: 20px;
+    font-style: normal;
+    margin-left: 0px;
+    color: #999; //zmen farbu taktiez
+    margin: -5px;
+}
 label.flaticon-help {
     left: 18px;
 }
-
 label.col-xs-1.flaticon-help {
     padding: 0;
     padding-left: 5px;

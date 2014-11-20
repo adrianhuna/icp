@@ -521,8 +521,16 @@ font-size: 20px;
 font-style: normal;
 margin-left: 0px;
 color: #999; //zmen farbu taktiez
+margin: -5px;
 }
 
 label.flaticon-help {
-    left: 20px;
+    left: 18px;
+}
+
+label.col-xs-1.flaticon-help {
+    padding: 0;
+    padding-left: 5px;
+    padding-top: 4px;
+    text-align: center;
 }

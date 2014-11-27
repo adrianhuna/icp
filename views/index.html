@@ -44,7 +44,7 @@
                                 <label for="dateinput" class="control-label col-sm-1 col-xs-1 flaticon-round67 flaticon-help" data-toggle="tooltip" data-placement="bottom" title="Zadajte dátum odchodu alebo príchodu spojenia. Ak údaj nevyplníte, použije sa dnešný dátum."></label>
                                 <div class="col-lg-5 col-xs-10 col-sm-5 col-md-5">
                                     <input type="date" id="dateinput" class="form-control" placeholder="dd.mm.rrrr">
-                                </div>  
+                                </div>
                                 <label for="timeinput" class="control-label col-sm-1 col-xs-1 flaticon-round67 flaticon-help" data-toggle="tooltip" data-placement="bottom" title="Zadajte čas jazdy. Ak údaj nevyplníte, automaticky sa zobrazia spojenia s aktuálnym časom."></label>
                                 <div class="col-lg-5 col-xs-10 col-sm-5 col-md-5">
                                     <input type="time" id="timeinput" class="form-control" placeholder="hh:mm">
@@ -126,7 +126,7 @@
                 </form>
             </div>
             <div class="tab-pane" id="international">
-                 <!-- Form -->
+                <!-- Form -->
                 <form action="#" class="form-horizontal" role="form" id="search-form" method="get">
                     <div id="inner-form-div">
                         <div id="main-search-right">
@@ -227,7 +227,6 @@
                         </div>
                     </div>
                 </form>
-
             </div>
             <div class="tab-pane" id="mestska"><h2>OH NO!</h2><h3>Hungry panda ate this form! We are sorry!</h3><img src="img/panda.jpg" style="margin: 0 auto;"></div>
         </div>
@@ -270,5 +269,10 @@
     $('.carousel').carousel({interval: 5000, cycle: true});
     $('#search-form').submit(function(e) {
         e.preventDefault();
+    });
+    $('#change-direction').click(function(e) {
+        var one = $("#odkial").val();
+        $("#odkial").val($("#kam").val());
+        $("#kam").val(one);
     });
 </script>

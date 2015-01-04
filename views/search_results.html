@@ -2,10 +2,10 @@
 <div id="inner_block">
     <div id="inner_block_in" class="control-group">
         <div id="results_butons">
-            <button type="button" class="btn">Zmeniť zadanie</button>
-            <button type="button" class="btn">Nové zadanie</button>
-            <button type="button" class="btn">Spiatočné spojenie</button>
-            <button type="button" class="btn">Trvalý odkaz</button>
+            <button type="button" class="btn btn-sm">Zmeniť zadanie</button>
+            <button type="button" class="btn btn-sm">Nové zadanie</button>
+            <button type="button" class="btn btn-sm">Spiatočné spojenie</button>
+            <button type="button" class="btn btn-sm" id="get-permalink-button">Trvalý odkaz</button>
         </div>
         <div id="results_tools">
             <strong>Všetky výsledky: </strong>
@@ -16,101 +16,99 @@
             <div class="flaticon-simple18 toolicon" onclick="alert('Spoj bol pridaný do Mojich spojení');"> Pridať do Mojich spojení</div>
             <div class="flaticon-settings48 toolicon" onclick="alert('Otvorili sa nastavenia');"> Nastavenie tlače</div>
         </div>
-        <table class="search-result table">
-            <tr valign="center" class="search-result-main-row">
-                <td style="max-width: 70px;">
-                    <div class="flaticon-train5 bigicon"></div>
-                </td>
-                <td style="max-width: 140px">
-                    <span class="connection-name">R 605 Dargov</span><br>
-                    <span class="connection-date">20.11.2014</span><br>
-                    <button class="main-button result-buy-button" data-toggle="modal" data-target="#myModal">Nákup lístka</button><br>
-                    <div class="connection-icons">
-                        <div style="max-width:19px; display:inline-block;margin-right: 5px;" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Zobrazí detail spojenia"><div class="flaticon-info24 toolicon result-toolicon" data-toggle="modal" data-target="#detailsModal"></div></div>
-                        <div class="flaticon-multiple25 toolicon result-toolicon" data-toggle="tooltip" data-placement="bottom" title="Zobrazí sa obsadenosť spojenia" onclick="alert('Zobrazí sa obsadenosť spoju');"></div>
-                        <div class="flaticon-printer70 toolicon result-toolicon" data-toggle="tooltip" data-placement="bottom" title="Spojenie sa vytlačí" onclick="alert('Spojenie sa vytlačí');"></div>
-                        <div class="flaticon-simple18 toolicon result-toolicon" data-toggle="tooltip" data-placement="bottom" title="Spojenie sa pridá do Mojich spojení" onclick="alert('Spoj bol pridaný do Mojich spojení');"></div>
+        <div class="mobile-result">
+            <table class="search-result table">
+                <tr valign="center" class="search-result-main-row">
+                    <td style="max-width: 70px;">
+                        <div class="flaticon-train5 bigicon"></div>
+                    </td>
+                    <td style="max-width: 140px">
+                        <span class="connection-name">R 605 Dargov</span><br>
+                        <span class="connection-date">20.11.2014</span><br>
+                        <button class="main-button result-buy-button" data-toggle="modal" data-target="#myModal">Nákup lístka</button><br>
+                        <div class="connection-icons">
+                            <div style="max-width:19px; display:inline-block;margin-right: 5px;" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Zobrazí detail spojenia"><div class="flaticon-info24 toolicon result-toolicon" data-toggle="modal" data-target="#detailsModal"></div></div>
+                            <div class="flaticon-multiple25 toolicon result-toolicon" data-toggle="tooltip" data-placement="bottom" title="Zobrazí sa obsadenosť spojenia" onclick="alert('Zobrazí sa obsadenosť spoju');"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <table class="table connection-inner-table table-condensed">
+                <tr><td>Malacky</td><td>Odchod: <b>9:04</b></td><td>Dátum: <b>20.11.2014</b></td><td>Dopravca: <b>ZSSR</b></td></tr>
+                <tr><td>Bratislava hl.st.</td><td>Príchod: <b>9:42</b></td><td colspan="2">Vlak: Os 2015</td></tr>
+            </table>
+            <table class="table connection-inner-table table-condensed last-table">
+                <tr><td>Bratislava hl.st.</td><td>Odchod: <b>9:55</b></td><td>Dátum: <b>20.11.2014</b></td><td>Dopravca: <b>ZSSR</b></td></tr>
+                <tr><td>Žilina</td><td>Príchod: <b>12:41</b></td><td colspan="2">Vlak: R 605 Dargov</td></tr>
+                <tr><td></td><td></td><td colspan="2">Čas: <b>3 hodiny 37 minút</b> / 241 kilometrov</td></tr>
+            </table>
+        </div>
+        <div class="mobile-result">
+            <table class="search-result table">
+                <tr valign="center" class="search-result-main-row">
+                    <td style="max-width: 70px;">
+                        <div class="flaticon-train5 bigicon"></div>
+                    </td>
+                    <td style="max-width: 140px">
+                        <span class="connection-name">R 607 FERRATUM BANK</span><br>
+                        <span class="connection-date">20.11.2014</span><br>
+                        <button class="main-button result-buy-button" data-toggle="modal" data-target="#myModal">Nákup lístka</button><br>
+                        <div class="connection-icons">
+                            <div style="max-width:19px; display:inline-block;margin-right: 5px;" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Zobrazí detail spojenia"><div class="flaticon-info24 toolicon result-toolicon" data-toggle="modal" data-target="#detailsModal"></div></div>
+                            <div class="flaticon-multiple25 toolicon result-toolicon" data-toggle="tooltip" data-placement="bottom" title="Zobrazí sa obsadenosť spojenia" onclick="alert('Zobrazí sa obsadenosť spoju');"></div>
+                        </div>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+            <table class="table connection-inner-table table-condensed">
+                <tr><td>Malacky</td><td>Odchod: <b>11:04</b></td><td>Dátum: <b>20.11.2014</b></td><td>Dopravca: <b>ZSSR</b></td></tr>
+                <tr><td>Bratislava hl.st.</td><td>Príchod: <b>11:42</b></td><td colspan="2">Vlak: Os 2019</td></tr>
+            </table>
+            <table class="table connection-inner-table table-condensed last-table">
+                <tr><td>Bratislava hl.st.</td><td>Odchod: <b>11:55</b></td><td>Dátum: <b>20.11.2014</b></td><td>Dopravca: <b>ZSSR</b></td></tr>
+                <tr><td>Žilina</td><td>Príchod: <b>14:41</b></td><td colspan="2">Vlak: R 607 FERRATUM BANK</td></tr>
+                <tr><td></td><td></td><td colspan="2">Čas: <b>3 hodiny 37 minút</b> / 241 kilometrov</td></tr>
+            </table>
+        </div>
+        <div class="mobile-result">
+            <table class="search-result table">
+                <tr valign="center" class="search-result-main-row">
+                    <td style="max-width: 70px;">
+                        <div class="flaticon-train5 bigicon"></div>
+                    </td>
+                    <td style="max-width: 140px">
+                        <span class="connection-name">R 609 Spišan</span><br>
+                        <span class="connection-date">20.11.2014</span><br>
+                        <button class="main-button result-buy-button" data-toggle="modal" data-target="#myModal">Nákup lístka</button><br>
+                        <div class="connection-icons">
+                            <div style="max-width:19px; display:inline-block;margin-right: 5px;" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Zobrazí detail spojenia"><div class="flaticon-info24 toolicon result-toolicon" data-toggle="modal" data-target="#detailsModal"></div></div>
+                            <div class="flaticon-multiple25 toolicon result-toolicon" data-toggle="tooltip" data-placement="bottom" title="Zobrazí sa obsadenosť spojenia" onclick="alert('Zobrazí sa obsadenosť spoju');"></div>
+                        </div>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+            <table class="table connection-inner-table table-condensed">
+                <tr><td>Malacky</td><td>Odchod: <b>13:04</b></td><td>Dátum: <b>20.11.2014</b></td><td>Dopravca: <b>ZSSR</b></td></tr>
+                <tr><td>Bratislava hl.st.</td><td>Príchod: <b>13:42</b></td><td colspan="2">Vlak: Os 2019</td></tr>
+            </table>
+            <table class="table connection-inner-table table-condensed last-table">
+                <tr><td>Bratislava hl.st.</td><td>Odchod: <b>13:55</b></td><td>Dátum: <b>20.11.2014</b></td><td>Dopravca: <b>ZSSR</b></td></tr>
+                <tr><td>Žilina</td><td>Príchod: <b>16:41</b></td><td colspan="2">Vlak: R 609 Spišan</td></tr>
+                <tr><td></td><td></td><td colspan="2">Čas: <b>3 hodiny 37 minút</b> / 241 kilometrov</td></tr>
+            </table>
+            <div class="info-loading">Ďalšie výsledky sa načítavajú<br>
+                <div id="circleG">
+                    <div id="circleG_1" class="circleG">
                     </div>
-                </td>
-                <td>
-                    <table class="table connection-inner-table table-condensed">
-                        <tr><td>Malacky</td><td>Odchod: <b>9:04</b></td><td>Dátum: <b>20.11.2014</b></td><td>Dopravca: <b>ZSSR</b></td></tr>
-                        <tr><td>Bratislava hl.st.</td><td>Príchod: <b>9:42</b></td><td colspan="2">Vlak: Os 2015</td></tr>
-                    </table>
-                    <table class="table connection-inner-table table-condensed last-table">
-                        <tr><td>Bratislava hl.st.</td><td>Odchod: <b>9:55</b></td><td>Dátum: <b>20.11.2014</b></td><td>Dopravca: <b>ZSSR</b></td></tr>
-                        <tr><td>Žilina</td><td>Príchod: <b>12:41</b></td><td colspan="2">Vlak: R 605 Dargov</td></tr>
-                        <tr><td></td><td></td><td colspan="2">Čas: <b>3 hodiny 37 minút</b> / 241 kilometrov</td></tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-        <table class="search-result table">
-            <tr valign="center" class="search-result-main-row">
-                <td style="max-width: 70px;">
-                    <div class="flaticon-train5 bigicon"></div>
-                </td>
-                <td style="max-width: 140px">
-                    <span class="connection-name">R 607 FERRATUM BANK</span><br>
-                    <span class="connection-date">20.11.2014</span><br>
-                    <button class="main-button result-buy-button" data-toggle="modal" data-target="#myModal">Nákup lístka</button><br>
-                    <div class="connection-icons">
-                        <div style="max-width:19px; display:inline-block;margin-right: 5px;" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Zobrazí detail spojenia"><div class="flaticon-info24 toolicon result-toolicon" data-toggle="modal" data-target="#detailsModal"></div></div>
-                        <div class="flaticon-multiple25 toolicon result-toolicon" data-toggle="tooltip" data-placement="bottom" title="Zobrazí sa obsadenosť spojenia" onclick="alert('Zobrazí sa obsadenosť spoju');"></div>
-                        <div class="flaticon-printer70 toolicon result-toolicon" data-toggle="tooltip" data-placement="bottom" title="Spojenie sa vytlačí" onclick="alert('Spojenie sa vytlačí');"></div>
-                        <div class="flaticon-simple18 toolicon result-toolicon" data-toggle="tooltip" data-placement="bottom" title="Spojenie sa pridá do Mojich spojení" onclick="alert('Spoj bol pridaný do Mojich spojení');"></div>
+                    <div id="circleG_2" class="circleG">
                     </div>
-                </td>
-                <td>
-                    <table class="table connection-inner-table table-condensed">
-                        <tr><td>Malacky</td><td>Odchod: <b>11:04</b></td><td>Dátum: <b>20.11.2014</b></td><td>Dopravca: <b>ZSSR</b></td></tr>
-                        <tr><td>Bratislava hl.st.</td><td>Príchod: <b>11:42</b></td><td colspan="2">Vlak: Os 2019</td></tr>
-                    </table>
-                    <table class="table connection-inner-table table-condensed last-table">
-                        <tr><td>Bratislava hl.st.</td><td>Odchod: <b>11:55</b></td><td>Dátum: <b>20.11.2014</b></td><td>Dopravca: <b>ZSSR</b></td></tr>
-                        <tr><td>Žilina</td><td>Príchod: <b>14:41</b></td><td colspan="2">Vlak: R 607 FERRATUM BANK</td></tr>
-                        <tr><td></td><td></td><td colspan="2">Čas: <b>3 hodiny 37 minút</b> / 241 kilometrov</td></tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-        <table class="search-result table">
-            <tr valign="center" class="search-result-main-row">
-                <td style="max-width: 70px;">
-                    <div class="flaticon-train5 bigicon"></div>
-                </td>
-                <td style="max-width: 140px">
-                    <span class="connection-name">R 609 Spišan</span><br>
-                    <span class="connection-date">20.11.2014</span><br>
-                    <button class="main-button result-buy-button" data-toggle="modal" data-target="#myModal">Nákup lístka</button><br>
-                    <div class="connection-icons">
-                        <div style="max-width:19px; display:inline-block;margin-right: 5px;" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Zobrazí detail spojenia"><div class="flaticon-info24 toolicon result-toolicon" data-toggle="modal" data-target="#detailsModal"></div></div>
-                        <div class="flaticon-multiple25 toolicon result-toolicon" data-toggle="tooltip" data-placement="bottom" title="Zobrazí sa obsadenosť spojenia" onclick="alert('Zobrazí sa obsadenosť spoju');"></div>
-                        <div class="flaticon-printer70 toolicon result-toolicon" data-toggle="tooltip" data-placement="bottom" title="Spojenie sa vytlačí" onclick="alert('Spojenie sa vytlačí');"></div>
-                        <div class="flaticon-simple18 toolicon result-toolicon" data-toggle="tooltip" data-placement="bottom" title="Spojenie sa pridá do Mojich spojení" onclick="alert('Spoj bol pridaný do Mojich spojení');"></div>
+                    <div id="circleG_3" class="circleG">
                     </div>
-                </td>
-                <td>
-                    <table class="table connection-inner-table table-condensed">
-                        <tr><td>Malacky</td><td>Odchod: <b>13:04</b></td><td>Dátum: <b>20.11.2014</b></td><td>Dopravca: <b>ZSSR</b></td></tr>
-                        <tr><td>Bratislava hl.st.</td><td>Príchod: <b>13:42</b></td><td colspan="2">Vlak: Os 2019</td></tr>
-                    </table>
-                    <table class="table connection-inner-table table-condensed last-table">
-                        <tr><td>Bratislava hl.st.</td><td>Odchod: <b>13:55</b></td><td>Dátum: <b>20.11.2014</b></td><td>Dopravca: <b>ZSSR</b></td></tr>
-                        <tr><td>Žilina</td><td>Príchod: <b>16:41</b></td><td colspan="2">Vlak: R 609 Spišan</td></tr>
-                        <tr><td></td><td></td><td colspan="2">Čas: <b>3 hodiny 37 minút</b> / 241 kilometrov</td></tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-        <div class="info-loading">Ďalšie výsledky sa načítavajú<br>
-            <div id="circleG">
-                <div id="circleG_1" class="circleG">
-                </div>
-                <div id="circleG_2" class="circleG">
-                </div>
-                <div id="circleG_3" class="circleG">
-                </div>
-            </div></div>
+                </div></div>
+            </div>
         </div>
     </div>

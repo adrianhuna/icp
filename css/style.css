@@ -340,6 +340,64 @@ input.error:focus {
   #damnit {
       display: none;
  }
+
+ #language-select {
+    position: relative;
+    top: -20px;
+    left: -15px;
+ }
+
+ #header-right {
+    margin-top: -55px;
+ }
+
+ #login-form-div {
+    display: none;
+ }
+
+ #register-link {
+    margin-top: -33px;
+    margin-left: -10px;
+ }
+
+ .flaticon-help {
+    display: none;
+ }
+ #timeinput {
+    margin-top: 15px;
+ }
+ #carousel-ads {
+    display: none;
+ }
+
+ #main-search-left .flaticon-round67 {
+    display: none;
+ }
+ #main {
+    padding: 5px 10px;
+ }
+ #get-permalink-button {
+    display: none;
+ }
+ #inner_block_in {
+    padding: 5px;
+ }
+ #results_tools {
+    display: none;
+ }
+ .connection-icons {
+    float: right;
+    margin-top: -50px !important;
+ }
+ .mobile-result {
+    background: #f8f8f8;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+ }
+ h1 {
+    margin: 0;
+    padding: 0;
+ }
 }
 /* Flaticon */
 
